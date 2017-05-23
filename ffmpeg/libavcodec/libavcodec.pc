@@ -1,0 +1,14 @@
+prefix=/home/xxm/android_dev/workspace/MMedia/Codec-src/jni/ffmpeg/../out/armeabi-v7a
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 57.64.101
+Requires: libavutil >= 55.34.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavcodec -lx264 -lfdk-aac -lm -pthread
+Libs.private: 
+Cflags: -I${includedir}

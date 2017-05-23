@@ -1,0 +1,91 @@
+x264 configure script
+Command line options: "--prefix=/home/xxm/android_dev/workspace/MMedia/Codec-src/jni/x264/../out/armeabi-v7a" "--disable-opencl" "-disable-gpac" "--disable-cli" "--enable-pic" "--enable-static" "--host=armv7a-linux-androideabi" "--cross-prefix=/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-" "--sysroot=/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm" "--extra-cflags=-O3" "-DANDROID" "-march=armv7-a" "-mfloat-abi=softfp" "-mfpu=neon" "--extra-ldflags=-Wl,--no-undefined" "-Wl,-dynamic-linker=/system/bin/linker" "-lc" "-lm" "-lgcc"
+
+checking whether /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc works... yes
+checking whether /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc supports for( int i = 0; i < 9; i++ ); with -std=gnu99... yes
+checking whether /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc supports __asm__("rev ip, ip");... yes
+checking whether /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc supports __asm__("movt r0, #0");... yes
+checking whether /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc supports __asm__("vadd.i16 q0, q0, q0");... yes
+checking whether /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc supports .func test
+.endfunc... yes
+checking for pthread_create(0,0,0,0); in pthread.h... no
+Failed commandline was:
+--------------------------------------------------
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc conftest.c  -Wall -I. -I$(SRCPATH) --sysroot=/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm -O3 -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=neon -std=gnu99 -D_GNU_SOURCE  -lpthread   --sysroot=/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm -Wl,--no-undefined -Wl,-dynamic-linker=/system/bin/linker -lc -lm -lgcc -lm -o conftest
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lpthread
+collect2: error: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <pthread.h>
+int main (void) { pthread_create(0,0,0,0); return 0; }
+--------------------------------------------------
+checking for pthread_create(0,0,0,0); in pthread.h... yes
+checking for cpu_set_t p_aff; return CPU_COUNT(&p_aff); in sched.h... no
+Failed commandline was:
+--------------------------------------------------
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc conftest.c  -Wall -I. -I$(SRCPATH) --sysroot=/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm -O3 -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=neon -std=gnu99 -D_GNU_SOURCE  -D_GNU_SOURCE -Werror   --sysroot=/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm -Wl,--no-undefined -Wl,-dynamic-linker=/system/bin/linker -lc -lm -lgcc -lm  -o conftest
+conftest.c: In function 'main':
+conftest.c:2:19: error: unknown type name 'cpu_set_t'
+ int main (void) { cpu_set_t p_aff; return CPU_COUNT(&p_aff); return 0; }
+                   ^
+conftest.c:2:1: error: implicit declaration of function 'CPU_COUNT' [-Werror=implicit-function-declaration]
+ int main (void) { cpu_set_t p_aff; return CPU_COUNT(&p_aff); return 0; }
+ ^
+cc1: all warnings being treated as errors
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <sched.h>
+int main (void) { cpu_set_t p_aff; return CPU_COUNT(&p_aff); return 0; }
+--------------------------------------------------
+checking for return log2f(2); in math.h... no
+Failed commandline was:
+--------------------------------------------------
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc conftest.c  -Wall -I. -I$(SRCPATH) --sysroot=/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm -O3 -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=neon -std=gnu99 -D_GNU_SOURCE  -Werror   --sysroot=/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm -Wl,--no-undefined -Wl,-dynamic-linker=/system/bin/linker -lc -lm -lgcc -lm  -o conftest
+conftest.c: In function 'main':
+conftest.c:2:1: error: implicit declaration of function 'log2f' [-Werror=implicit-function-declaration]
+ int main (void) { return log2f(2); return 0; }
+ ^
+conftest.c:2:26: error: incompatible implicit declaration of built-in function 'log2f' [-Werror]
+ int main (void) { return log2f(2); return 0; }
+                          ^
+cc1: all warnings being treated as errors
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <math.h>
+int main (void) { return log2f(2); return 0; }
+--------------------------------------------------
+checking whether defined(MAP_PRIVATE) is true... yes
+checking for uint32_t test_vec __attribute__ ((vector_size (16))) = {0,1,2,3}; in stdint.h... yes
+checking for stdio.h... yes
+checking for -fno-tree-vectorize... yes
+checking for fseeko(stdin,0,0); in stdio.h... yes
+checking for -Wshadow... yes
+checking for -Wmaybe-uninitialized... yes
+
+platform:      ARM
+byte order:    little-endian
+system:        LINUX
+cli:           no
+libx264:       internal
+shared:        no
+static:        yes
+asm:           yes
+interlaced:    yes
+avs:           no
+lavf:          no
+ffms:          no
+mp4:           no
+gpl:           yes
+thread:        posix
+opencl:        no
+filters:       crop select_every 
+lto:           no
+debug:         no
+gprof:         no
+strip:         no
+PIC:           yes
+bit depth:     8
+chroma format: all

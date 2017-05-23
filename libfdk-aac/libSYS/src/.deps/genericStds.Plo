@@ -1,0 +1,111 @@
+libSYS/src/genericStds.lo: libSYS/src/genericStds.cpp \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/math.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/android/api-level.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/types.h \
+ /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include/stddef.h \
+ /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include/stdint.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/stdint.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/_types.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/_types.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/asm/types.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/types.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
+ /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed/limits.h \
+ /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed/syslimits.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/limits.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/limits.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/limits.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/limits.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/asm/page.h \
+ libSYS/include/genericStds.h libSYS/include/machine_type.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/stdlib.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/string.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/malloc.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/alloca.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/strings.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/memory.h \
+ /home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/stdio.h \
+ /home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include/stdarg.h
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/math.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/cdefs.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/android/api-level.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include/stddef.h:
+
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include/stdint.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/stdint.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/_types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/_types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/posix_types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/stddef.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/compiler.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/asm/posix_types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/asm/types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/kernel.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h:
+
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed/limits.h:
+
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include-fixed/syslimits.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/limits.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/limits.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/linux/limits.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/internal_types.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/machine/limits.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/sys/syslimits.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/asm/page.h:
+
+libSYS/include/genericStds.h:
+
+libSYS/include/machine_type.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/stdlib.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/string.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/malloc.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/alloca.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/strings.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/memory.h:
+
+/home/xxm/android_dev/android-ndk-r13b/platforms/android-9/arch-arm/usr/include/stdio.h:
+
+/home/xxm/android_dev/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/include/stdarg.h:

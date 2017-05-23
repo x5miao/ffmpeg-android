@@ -1,0 +1,146 @@
+#!/bin/bash
+#编译的最终结果放在PREFIX目录下,此脚本只支持基于ARM的库的构建
+
+#2017-03-17 Mod by xxm:
+#        use make-standalone-toolchain.sh to make toolchains in $PWD/../arm-linux-androideabi,
+#arch is arm, platform is android-19
+
+
+if [ ! $# == 1 ] ; then
+    echo "Usage: $0 [0|1|2]"
+    exit
+fi
+
+export TMPDIR=/home/xxm/android_dev/workspace/tmp
+
+TARGET_PLATFORM=android-19
+TARGET_ARCH_ABI=armeabi-v7a
+PREFIX=$PWD/../out/$TARGET_ARCH_ABI
+
+TOOLCHAINS=/home/xxm/android_dev/workspace/arm-linux-androideabi
+SYSROOT=$TOOLCHAINS/sysroot
+
+if [ $1 == "2" ] ; then
+echo "********support X264,fdk-aac encoder******"
+./configure --prefix=$PREFIX --enable-pic \
+--enable-gpl --enable-nonfree \
+--enable-cross-compile \
+--arch=armv7a \
+--cross-prefix=$TOOLCHAINS/bin/arm-linux-androideabi- \
+--sysroot=$SYSROOT \
+--target-os=android \
+--enable-neon \
+--enable-memalign-hack \
+--disable-programs \
+--disable-everything \
+--disable-encoders \
+--disable-decoders \
+--enable-libx264 \
+--enable-libfdk-aac \
+--enable-encoder=aac \
+--enable-encoder=libfdk_aac \
+--enable-encoder=libx264 \
+--enable-decoder=libfdk_aac \
+--enable-decoder=aac \
+--enable-decoder=aac_latm \
+--enable-decoder=h264 \
+--disable-demuxers \
+--enable-demuxer=aac  \
+--enable-demuxer=asf  \
+--enable-demuxer=ffmetadata  \
+--enable-demuxer=h264  \
+--enable-demuxer=mp3  \
+--disable-muxers \
+--enable-muxer=adts  \
+--enable-muxer=h264  \
+--enable-muxer=mp4  \
+--enable-muxer=pcm_s16le \
+--enable-parser=aac \
+--enable-parser=aac_latm \
+--enable-parser=h264  \
+--disable-zlib \
+--disable-debug \
+--extra-cflags="-DANDROID -I../out/armeabi-v7a/include" \
+--extra-ldflags="-L../out/armeabi-v7a/lib -lx264 -lfdk-aac -dynamic-linker=/system/bin/linker -lgcc -ldl -lm -llog"
+
+elif [ $1 == "1" ] ; then
+echo "*******support h264,mp4,aacplus encoder[deprecated]********" 
+./configure --prefix=$PREFIX --enable-pic \
+--enable-gpl --enable-nonfree \
+--enable-cross-compile \
+--cross-prefix=$TOOLCHAINS/bin/arm-linux-androideabi- \
+--target-os=android \
+--sysroot=$SYSROOT \
+--arch=armv7a\
+ --enable-neon \
+--disable-debug \
+--enable-memalign-hack \
+--disable-programs \
+--disable-encoders \
+--disable-decoders \
+--enable-libx264 \
+--enable-encoder=aac \
+--enable-decoder=aac \
+--enable-decoder=aac_latm \
+--enable-decoder=h264 \
+--disable-demuxers \
+--enable-demuxer=aac  \
+--enable-demuxer=asf  \
+--enable-demuxer=ffmetadata  \
+--enable-demuxer=h264  \
+--enable-demuxer=latm  \
+--disable-muxers \
+--enable-muxer=adts  \
+--enable-muxer=h264  \
+--enable-muxer=mp4  \
+--enable-muxer=pcm_s16le \
+--enable-parser=aac \
+--enable-parser=aac_latm \
+--enable-parser=h264  \
+--disable-zlib \
+--disable-debug \
+--extra-cflags=" -O3 -DANDROID -I../x264 -I../../../Codec-include -mfloat-abi=softfp -mfpu=neon" \
+--extra-ldflags="-dynamic-linker=/system/bin/linker -nostdlib -lc -lgcc -ldl -lm  -llog"
+
+elif [ $1 == "0" ] ; then 
+echo "******no support encoder********"
+./configure  --prefix=$PREFIX --enable-pic \
+--enable-gpl --enable-nonfree \
+--enable-cross-compile \
+--cross-prefix=$TOOLCHAINS/bin/arm-linux-androideabi- \
+--target-os=linux \
+--sysroot=$SYSROOT \
+--arch=armv7a \
+--enable-neon \
+--disable-debug \
+--enable-memalign-hack \
+--disable-programs \
+--disable-encoders \
+--disable-decoders \
+--enable-decoder=aac \
+--enable-decoder=aac_latm \
+--enable-decoder=h264 \
+--disable-demuxers \
+--enable-demuxer=aac  \
+--enable-demuxer=asf  \
+--enable-demuxer=ffmetadata  \
+--enable-demuxer=h264  \
+--enable-demuxer=latm  \
+--disable-muxers \
+--enable-muxer=adts  \
+--enable-muxer=h264  \
+--enable-muxer=mp4  \
+--enable-muxer=pcm_s16le \
+--enable-parser=aac \
+--enable-parser=aac_latm \
+--enable-parser=h264  \
+--disable-zlib \
+--disable-debug \
+--extra-cflags=" -O3 -DANDROID -mfloat-abi=softfp -mfpu=neon" \
+--extra-ldflags="-dynamic-linker=/system/bin/linker -nostdlib -lc -lgcc -ldl -lm  -llog"
+
+else  
+echo "*********   check input para. *******" 
+exit
+fi
+

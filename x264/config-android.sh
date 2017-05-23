@@ -1,0 +1,74 @@
+# !/bin/bash
+#x264 build script
+
+TARGET_HOST=armv7a-linux-androideabi
+SYSROOT_ARCH_DIRNAME=arch-arm
+OPTIMIZE_OPTION="-O3 -DANDROID"
+
+case $LIBMEDIA_TARGET_ARCH_ABI in
+armeabi*v7a)
+    TARGET_HOST=armv7a-linux-androideabi
+    SYSROOT_ARCH_DIRNAME=arch-arm
+	OPTIMIZE_OPTION="-O3 -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=neon"
+    TOOLCHAIN_PREFIX=${NDK_ROOT_PATH}/toolchains/arm-linux-androideabi-${TOOLCHAIN_VERSION}/prebuilt/linux-x86_64/bin/arm-linux-androideabi-
+    ;;
+armeabi)
+    CONFIG_OPTION=--disable-asm
+    TARGET_HOST=arm-linux-android
+    SYSROOT_ARCH_DIRNAME=arch-arm
+	OPTIMIZE_OPTION="-O3 -DANDROID -march=armv5te"
+    TOOLCHAIN_PREFIX=${NDK_ROOT_PATH}/toolchains/arm-linux-androideabi-${TOOLCHAIN_VERSION}/prebuilt/linux-x86_64/bin/arm-linux-androideabi- 
+    ;;
+arm64*v8a)
+	TARGET_HOST=aarch64-unknown-linux-android
+    SYSROOT_ARCH_DIRNAME=arch-arm64
+	OPTIMIZE_OPTION="-O3 -DANDROID -march=armv8-a"
+    TOOLCHAIN_PREFIX=${NDK_ROOT_PATH}/toolchains/aarch64-linux-android-${TOOLCHAIN_VERSION}/prebuilt/linux-x86_64/bin/aarch64-linux-android-
+    ;;
+x86)
+    TARGET_HOST=x86-linux-android
+	SYSROOT_ARCH_DIRNAME=arch-x86
+	OPTIMIZE_OPTION="-O3 -DANDROID -march=i686 -mtune=intel -mssse3 -mfpmath=sse -m32"
+    TOOLCHAIN_PREFIX=${NDK_ROOT_PATH}/toolchains/x86-${TOOLCHAIN_VERSION}/prebuilt/linux-x86_64/bin/i686-linux-android-
+    ;;
+x86*64*)
+    TARGET_HOST=x86_64-linux-android
+	SYSROOT_ARCH_DIRNAME=arch-x86_64
+	OPTIMIZE_OPTION="-O3 -DANDROID -march=x86-64 -msse4.2 -mpopcnt -m64 -mtune=intel"
+    TOOLCHAIN_PREFIX=${NDK_ROOT_PATH}/toolchains/x86_64-${TOOLCHAIN_VERSION}/prebuilt/linux-x86_64/bin/x86_64-linux-android-
+	;;
+mips)
+	#I don't know how to optimize mips
+	TARGET_HOST=mipsel-linux-android
+	SYSROOT_ARCH_DIRNAME=arch-mips
+	OPTIMIZE_OPTION="-O3 -DANDROID"
+    TOOLCHAIN_PREFIX=${NDK_ROOT_PATH}/toolchains/mipsel-linux-android-${TOOLCHAIN_VERSION}/prebuilt/linux-x86_64/bin/mipsel-linux-android-
+    ;;
+mips64)
+    TARGET_HOST=mips64el-linux-android
+    SYSROOT_ARCH_DIRNAME=arch-mips64
+	OPTIMIZE_OPTION="-O3 -DANDROID"
+    TOOLCHAIN_PREFIX=${NDK_ROOT_PATH}/toolchains/mips64el-linux-android-${TOOLCHAIN_VERSION}/prebuilt/linux-x86_64/mips64el-linux-android-
+    ;;
+*) 
+   echo "unsupported arch(${LIBMEDIA_TARGET_ARCH_ABI}), please change your set-env.sh";
+   exit 1
+   ;;
+esac
+
+SYSROOT=${NDK_ROOT_PATH}/platforms/${LIBMEDIA_TARGET_PLATFORM}/${SYSROOT_ARCH_DIRNAME}
+PREFIX=${PWD}/../out/${LIBMEDIA_TARGET_ARCH_ABI}
+
+./configure --prefix=$PREFIX ${CONFIG_OPTION} \
+--disable-opencl -disable-gpac --disable-cli \
+--enable-pic \
+--enable-static \
+--host=${TARGET_HOST} \
+--cross-prefix=${TOOLCHAIN_PREFIX} \
+--sysroot=$SYSROOT \
+--extra-cflags="${OPTIMIZE_OPTION}"  \
+--extra-ldflags="-Wl,--no-undefined -Wl,-dynamic-linker=/system/bin/linker -lc -lm -lgcc"
+
+make clean
+make
+make install
